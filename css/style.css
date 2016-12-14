@@ -1,0 +1,33 @@
+.masthead {
+    position: relative;
+    margin: 100px auto 0 auto;
+    padding: 40px 0;
+    background: url(../images/pattern.svg);
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.colours:after {
+    content: '';
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right,#fff 0,#ffe63e 33%,#58b23d 66%,#000 100%);
+}
+
+.colours:before {
+    content: '';
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left,#fff 0,#ffe63e 33%,#58b23d 66%,#000 100%);
+}
+
+.masthead>.container {
+    width: 85%;
+    margin: 0 auto;
+}
