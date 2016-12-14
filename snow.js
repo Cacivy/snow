@@ -1,12 +1,16 @@
 (function () {
     var defaultConfig = {
         max: 100,
-        speed: 0
+        speed: 0,
+        top: true
     }
 
     function snow(_dom, obj) {
-        if (!_dom) return;
-
+        if (!_dom || _dom.nodeType !== 1) {
+            console.warn('This is a not allowed element!')
+            return;
+        }
+        
         const
             config = Object.assign(defaultConfig, obj),
             width = _dom.clientWidth,
@@ -24,14 +28,18 @@
             canvas.style.left = canvas.style.top = "0";
         context.fillStyle = "#fff";
 
-        const create = function (y) {
-            return {
+        const create = function (isTop) {
+            let obj = {
                 x : Math.random() * width,
-                y : y || Math.random() * height,
+                y : Math.random() * height,
                 vy : 1 + 3 * Math.random(),
                 vx : .5 - Math.random(),
                 r : 1 + 2 * Math.random()
             }
+
+            obj.y = isTop ? 0 : config.top ? -obj.y : obj.y;
+
+            return obj;
         }
 
         const fill = function () {
@@ -47,7 +55,7 @@
 
                 if (x.y > height) {
                     list.splice(i , 1);
-                    list.push(create(1))
+                    list.push(create(true))
                 }
             })
 

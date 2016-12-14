@@ -1,4 +1,5 @@
 .masthead {
+    min-height: 300px;
     position: relative;
     margin: 100px auto 0 auto;
     padding: 40px 0;
@@ -30,4 +31,11 @@
 .masthead>.container {
     width: 85%;
     margin: 0 auto;
+}
+
+.masthead>.container>h2 {
+    display: inline-block;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffe63e), to(#58b23d));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
